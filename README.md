@@ -1,21 +1,33 @@
 # udacityML
+>This git have a Udacity Project (Operacionalize a Machine Learning API) 
+>With this project we can run a House Price Prediction in 3 ways
+>
+>1. Localy
+>2. On Docker
+>3. On kubernate
+>
+>This was build on Ubuntu Desktop LTS
 
-## 1. Circleci Test
+## Circleci Test
 [![CircleCI](https://circleci.com/gh/Leandroamaral/udacityML/tree/master.svg?style=svg)](https://circleci.com/gh/Leandroamaral/udacityML/tree/master)
 
-## 2. Setup Local Environment
+## 1. Run on Local Environment
 
 ### Prerequisites
 Install Python
 
 ```
-apt-get install  python3.7 python3-pip python3-setuptools  python3.7-venv 
+python3.7 
+python3-pip 
+python3-setuptools  
+python3.7-venv
+make
 ```
 
 Clone github master branch
 
 ```
-git clone https://github.com/Leandroamaral/udacityML.git
+https://github.com/Leandroamaral/udacityML.git
 ```
 
 ### Setup Virtual Environment
@@ -27,7 +39,7 @@ source ~/.devops/bin/activate
 make install
 ```
 
-### Run machine learning localy
+### Run machine learning API
 ```
 ./run_local.sh
 ```
@@ -37,20 +49,15 @@ make install
 make_prediction.sh 80
 ```
 
-## 3. Setup Docker Environmnet
+## 2. Run on Docker Environmnet
 
 ### Prerequisites
 Install Docker 
 
 ```
-sudo apt-get install     apt-transport-https     ca-certificates     curl     gnupg-agent     software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-apt-key fingerprint 0EBFCD88
-add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+docker-ce 
+docker-ce-cli 
+containerd.io
 ```
 
 Test docker installation
@@ -67,3 +74,51 @@ docker run hello-world
 ```
 make_prediction.sh
 ```
+
+## 3 Run on Kubernates Environmnet
+
+### Prerequisites
+Install Kubernates
+
+```
+VirtualBox-6.0
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube
+minikube start
+```
+
+### Run machine learning on Kubernates
+```
+./run_docker.sh
+```
+
+### Testing (on another terminal)
+```
+make_prediction.sh
+```
+
+# Files Description
+
+.circleci -> circleci yml file configuration
+
+model_data -> predictive model
+
+Dockerfile -> Configuration file to create a docker image
+
+Makefile -> Configuraton file to install local environment using make
+
+app.py -> Python file that run the machine learning API
+
+docker_out.txt -> Log file from docker prediction
+
+make_prediction.sh -> make the prediciton
+
+requiriments.txt -> list of packages needed to run the machine learning API.
+
+run_docker.sh -> install and execute docker environment
+
+run_kubernates.sh -> install and execute kubernates environment
+
+run_local.sh -> execute localy enviroment
+
+upload_docker.sh -> Push the docker image to docker HUB
