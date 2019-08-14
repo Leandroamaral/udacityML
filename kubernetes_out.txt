@@ -1,7 +1,19 @@
-Error from server (AlreadyExists): deployments.apps "predict" already exists
-NAME                              READY   STATUS    RESTARTS   AGE
-hello-minikube-856979d68c-f46xv   1/1     Running   4          15d
-predict-7d88576fd6-rhjgs          1/1     Running   1          21h
-Forwarding from 127.0.0.1:8000 -> 80
-Forwarding from [::1]:8000 -> 80
-Handling connection for 8000
+* Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-516-115
+[2019-08-14 17:42:19,748] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2019-08-14 17:42:19,966] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2019-08-14 17:42:19,972] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2019-08-14 17:42:19,975] INFO in app: output prediction: [20.35373177134412]
+127.0.0.1 - - [14/Aug/2019 17:42:19] "POST /predict HTTP/1.1" 200 -
