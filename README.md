@@ -111,6 +111,8 @@ app.py -> Python file that run the machine learning API
 
 docker_out.txt -> Log file from docker prediction
 
+kubernate_out.txt -> Log file from kubernate prediction
+
 make_prediction.sh -> make the prediciton
 
 requiriments.txt -> list of packages needed to run the machine learning API.
