@@ -1,0 +1,7 @@
+Error from server (AlreadyExists): deployments.apps "predict" already exists
+NAME                              READY   STATUS    RESTARTS   AGE
+hello-minikube-856979d68c-f46xv   1/1     Running   4          15d
+predict-7d88576fd6-rhjgs          1/1     Running   1          21h
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
